@@ -1,36 +1,139 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Wallet App (Next.js + TypeScript)
+
+A mobile-first wallet demo application built for a test task.
+
+The app includes:
+
+- Transactions list screen
+- Transaction details screen (dynamic slug route)
+- Local JSON data source loaded via `axios`
+- State management with `zustand`
+- UI components styled with `MUI` + extracted style files
+- Unit tests with `Vitest`
+- Linting/formatting and Git hooks (`ESLint`, `Prettier`, `Husky`, `lint-staged`)
+- CI workflow for lint, test, and build checks
+
+## Tech Stack
+
+- `Next.js 15` (App Router)
+- `TypeScript`
+- `Axios`
+- `Zustand`
+- `MUI`
+- `FontAwesome`
+- `Vitest` + `Testing Library`
+
+## Project Structure
+
+- `src/app` - routes and pages
+- `src/components/wallet/overview` - list screen composition and summary cards
+- `src/components/wallet/transactions` - transaction list item and icon components
+- `src/components/wallet/details` - transaction details screen components
+- `src/shared/api` - API layer and abstract axios service
+- `src/store` - zustand store
+- `src/lib` - utility and formatting functions
+- `src/types` - shared TypeScript types
+- `public/data/wallet.json` - local test data source
 
 ## Getting Started
 
-First, run the development server:
+### 1) Install dependencies
+
+```bash
+npm install
+```
+
+### 2) Run development server
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open [http://localhost:3000](http://localhost:3000) in your browser.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Available Scripts
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+### Development
 
-## Learn More
+```bash
+npm run dev
+```
 
-To learn more about Next.js, take a look at the following resources:
+### Production build
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+npm run build
+npm run start
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+### Lint
 
-## Deploy on Vercel
+```bash
+npm run lint
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+### Tests
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+npm run test
+```
+
+Watch mode:
+
+```bash
+npm run test:watch
+```
+
+Coverage (80% threshold):
+
+```bash
+npm run test:coverage
+```
+
+### Formatting
+
+```bash
+npm run format
+npm run format:check
+```
+
+## Data Source
+
+The app fetches wallet data from:
+
+- `GET /data/wallet.json`
+
+This file is located at:
+
+- `public/data/wallet.json`
+
+## Architecture Decisions
+
+### Why Zustand
+
+- Lightweight and fast state manager with minimal boilerplate.
+- Great fit for this project size (simple global state without Redux-level complexity).
+- Easy to keep async actions (`fetchWallet`) close to the state they update.
+
+### Why Normalized Store (`transactions` + `transactionsId`)
+
+- `transactions` as an object provides O(1) lookup by id for detail pages.
+- `transactionsId` keeps predictable rendering order for the list screen.
+- This structure avoids repeated array scans (`find`) and scales better with larger datasets.
+
+### Why Abstract Axios Service
+
+- Shared request/response behavior is centralized (headers, interceptors, error normalization).
+- Feature services (like `TransactionsApiService`) stay small and focused on endpoint contracts.
+- Easier testing and future extension (auth refresh, retry policies, additional APIs).
+
+### Why Utility Layer for Formatting
+
+- Formatting and domain rules are isolated in `src/lib` (`walletFormat.ts`).
+- UI components remain focused on rendering, improving readability and testability.
+- Business rules (daily points formula, date formatting strategy) are covered by unit tests.
+
+## Notes
+
+- If you see hydration warnings in development, they may be caused by browser extensions modifying the DOM before React hydration.
+- The project is configured with Husky pre-commit hooks and CI checks to keep the codebase consistent.

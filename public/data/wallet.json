@@ -1,0 +1,141 @@
+{
+  "card": {
+    "limit": 1500,
+    "startingBalance": 17.3,
+    "noPaymentDueText": "You've paid your September balance."
+  },
+  "transactions": [
+    {
+      "id": "apple-pending-card-used",
+      "type": "credit",
+      "amount": 14.06,
+      "name": "Apple",
+      "description": "Card Number Used",
+      "location": "",
+      "date": "2026-04-07T09:12:00.000Z",
+      "pending": true,
+      "authorizedUser": "Diana",
+      "icon": "apple",
+      "status": "Approved",
+      "cardLabel": "RBC Bank Debit Card"
+    },
+    {
+      "id": "payment-jpmorgan-tuesday",
+      "type": "payment",
+      "amount": 174.0,
+      "name": "Payment",
+      "description": "From JPMorgan Chase Bank National",
+      "location": "",
+      "date": "2026-04-08T11:05:00.000Z",
+      "pending": false,
+      "icon": "payment",
+      "status": "Approved",
+      "cardLabel": "RBC Bank Debit Card"
+    },
+    {
+      "id": "apple-card-used-diana",
+      "type": "credit",
+      "amount": 3.24,
+      "name": "Apple",
+      "description": "Card Number Used",
+      "location": "",
+      "date": "2026-04-05T15:41:00.000Z",
+      "pending": false,
+      "authorizedUser": "Diana",
+      "icon": "apple",
+      "status": "Approved",
+      "cardLabel": "RBC Bank Debit Card"
+    },
+    {
+      "id": "payment-jpmorgan-saturday",
+      "type": "payment",
+      "amount": 99.71,
+      "name": "Payment",
+      "description": "From JPMorgan Chase Bank National",
+      "location": "",
+      "date": "2026-04-04T13:28:00.000Z",
+      "pending": false,
+      "icon": "payment",
+      "status": "Approved",
+      "cardLabel": "RBC Bank Debit Card"
+    },
+    {
+      "id": "payment-jpmorgan-monday",
+      "type": "payment",
+      "amount": 73.58,
+      "name": "Payment",
+      "description": "From JPMorgan Chase Bank National",
+      "location": "",
+      "date": "2026-04-01T08:17:00.000Z",
+      "pending": false,
+      "icon": "payment",
+      "status": "Approved",
+      "cardLabel": "RBC Bank Debit Card"
+    },
+    {
+      "id": "ikea-round-rock",
+      "type": "credit",
+      "amount": 21.61,
+      "name": "IKEA",
+      "description": "",
+      "location": "Round Rock, TX",
+      "date": "2026-03-22T10:15:00.000Z",
+      "pending": false,
+      "icon": "ikea",
+      "status": "Approved",
+      "cardLabel": "RBC Bank Debit Card"
+    },
+    {
+      "id": "target-cedar-park",
+      "type": "credit",
+      "amount": 73.58,
+      "name": "Target",
+      "description": "",
+      "location": "Cedar Park, TX",
+      "date": "2026-03-18T18:11:00.000Z",
+      "pending": false,
+      "icon": "target",
+      "status": "Approved",
+      "cardLabel": "RBC Bank Debit Card"
+    },
+    {
+      "id": "netflix-subscription",
+      "type": "credit",
+      "amount": 19.99,
+      "name": "Netflix",
+      "description": "Monthly subscription",
+      "location": "",
+      "date": "2026-03-12T21:00:00.000Z",
+      "pending": false,
+      "icon": "movie",
+      "status": "Approved",
+      "cardLabel": "RBC Bank Debit Card"
+    },
+    {
+      "id": "whole-foods",
+      "type": "credit",
+      "amount": 52.44,
+      "name": "Whole Foods",
+      "description": "Groceries",
+      "location": "Austin, TX",
+      "date": "2026-03-02T17:34:00.000Z",
+      "pending": false,
+      "icon": "cart",
+      "status": "Approved",
+      "cardLabel": "RBC Bank Debit Card"
+    },
+    {
+      "id": "airalo-esim",
+      "type": "credit",
+      "amount": 7.5,
+      "name": "Airalo",
+      "description": "eSIM package",
+      "location": "",
+      "date": "2026-05-22T12:47:00.000Z",
+      "pending": false,
+      "icon": "sim",
+      "status": "Approved",
+      "cardLabel": "RBC Bank Debit Card"
+    }
+  ]
+}
